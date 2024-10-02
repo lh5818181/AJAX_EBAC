@@ -15,6 +15,8 @@
 })*/
 
 $(document).ready(function() {
+    $('#cep').mask('00000-000');
+
     $('#btn-buscar-cep').click(function() {
         const cep = $('#cep').val();
         const endpoint = `https://viacep.com.br/ws/${cep}/json`;
@@ -32,8 +34,11 @@ $(document).ready(function() {
             const endereco = `${logradouro}, ${bairro} - ${cidade} - ${estado}`;
             $('#endereco').val(endereco);
 
-            $(botao).find('i').removeClass('d-none');
-            $(botao).find('span').addClass('d-none');
+            setTimeout(function() {
+                $(botao).find('i').removeClass('d-none');
+                $(botao).find('span').addClass('d-none');
+            }, 3000);
+
         })
     })
 })
