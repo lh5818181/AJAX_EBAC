@@ -26,19 +26,23 @@ $(document).ready(function() {
 
 
 
-        $.ajax(endpoint).done(function(resposta) {
-            const logradouro = resposta.logradouro;
-            const bairro = resposta.bairro;
-            const cidade = resposta.localidade;
-            const estado = resposta.uf;
-            const endereco = `${logradouro}, ${bairro} - ${cidade} - ${estado}`;
-            $('#endereco').val(endereco);
+        // $.ajax(endpoint).done(function(resposta) {
+        //     const logradouro = resposta.logradouro;
+        //     const bairro = resposta.bairro;
+        //     const cidade = resposta.localidade;
+        //     const estado = resposta.uf;
+        //     const endereco = `${logradouro}, ${bairro} - ${cidade} - ${estado}`;
+        //     $('#endereco').val(endereco);
 
-            setTimeout(function() {
-                $(botao).find('i').removeClass('d-none');
-                $(botao).find('span').addClass('d-none');
-            }, 3000);
+        //     setTimeout(function() {
+        //         $(botao).find('i').removeClass('d-none');
+        //         $(botao).find('span').addClass('d-none');
+        //     }, 3000);
 
+        // })
+    
+        fetch(endpoint).then(function(resposta) {
+            console.log(resposta);
         })
     })
 })
